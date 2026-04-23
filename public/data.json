@@ -1,0 +1,107 @@
+{
+  "personalInfo": {
+    "name": "韦舒媛",
+    "title": "Media Artist",
+    "school": "四川美术学院",
+    "major": "数字媒体艺术专业 / 大三",
+    "bio": "\"Exploring the boundaries between human cognition and spatial computing through interactive narratives.\"",
+    "schoolEn": "Sichuan Fine Arts Institute",
+    "avatar": "" 
+  },
+  "projects": [
+    {
+      "id": "1",
+      "title": "Digital Media & Interaction Design",
+      "subtitle": "2027 Fall Portfolio Showcase",
+      "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800",
+      "role": "Interaction Designer",
+      "techStack": "R3F / GLSL / GSAP",
+      "details": [
+        {
+          "type": "text",
+          "content": "Exploring the boundaries between human cognition and spatial computing. This project breaks down visual data into pixelated facets, reconstructing them through interactive spatial narratives."
+        },
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800",
+          "caption": "Early conceptual sketch"
+        },
+        {
+          "type": "video",
+          "url": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "caption": "Interaction Demo"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Abstract Geometry",
+      "subtitle": "Generative Art Experiment",
+      "thumbnail": "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?q=80&w=800",
+      "role": "Creative Coder",
+      "techStack": "Three.js / React",
+      "details": [
+        {
+          "type": "text",
+          "content": "A study of form, light, and mathematical perfection. Using custom shaders to generate infinite procedural landscapes."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Virtual Metaphor",
+      "subtitle": "Interactive Installation",
+      "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800",
+      "role": "Installation Artist",
+      "techStack": "Unity / Sensors",
+      "details": [
+        {
+          "type": "text",
+          "content": "Interactive installation exploring digital spaces and how we perceive boundaries in the virtual realm."
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Echoes of Time",
+      "subtitle": "Historical Recreation",
+      "thumbnail": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=800",
+      "role": "3D Modeler",
+      "techStack": "Blender / Unreal",
+      "details": [
+        {
+          "type": "text",
+          "content": "Historical architectures reimagined using photogrammetry and point clouds."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Fluid Dynamics",
+      "subtitle": "Physics Simulation",
+      "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800",
+      "role": "VFX Artist",
+      "techStack": "Houdini",
+      "details": [
+        {
+          "type": "text",
+          "content": "Simulating zero-gravity behaviors in fluid dynamics, creating impossible physical interactions."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Synthetic Botany",
+      "subtitle": "Algorithm Life",
+      "thumbnail": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800",
+      "role": "Algorithm Designer",
+      "techStack": "Processing",
+      "details": [
+        {
+          "type": "text",
+          "content": "Artificial plant life algorithms simulating evolutionary growth patterns based on environmental constraints."
+        }
+      ]
+    }
+  ]
+}

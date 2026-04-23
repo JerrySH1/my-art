@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: YOUR_USERNAME/YOUR_REPO_NAME
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "config"
+    label: "Settings"
+    files:
+      - name: "personal_info"
+        label: "Personal Information"
+        file: "public/data.json"
+        fields:
+          - {label: "Name", name: "personalInfo.name", widget: "string"}
+          - {label: "Job Title", name: "personalInfo.title", widget: "string"}
+          - {label: "Email", name: "personalInfo.email", widget: "string"}
+          - {label: "Phone", name: "personalInfo.phone", widget: "string"}
+          - {label: "Short Bio", name: "personalInfo.bio", widget: "text"}
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - {label: "Project ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Cover Image", name: "thumbnail", widget: "image"}
+              - {label: "Video URL (Vimeo/YouTube Embed)", name: "videoUrl", widget: "string", required: false}
+              - {label: "Design Process", name: "description", widget: "markdown"}
