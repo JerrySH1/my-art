@@ -65,9 +65,34 @@ function App() {
   const { setData, view } = useStore()
 
   useEffect(() => {
-    fetch('/data.json')
-      .then(res => res.json())
-      .then(data => setData(data))
+    const baseUrl = import.meta.env.BASE_URL;
+    
+    // 递归修复 JSON 中的相对路径，自动拼接 GitHub Pages 的 Base URL
+    const fixUrls = (obj) => {
+      if (typeof obj !== 'object' || obj === null) return obj;
+      if (Array.isArray(obj)) return obj.map(fixUrls);
+      
+      const newObj = {};
+      for (const key in obj) {
+        let val = obj[key];
+        if (typeof val === 'string' && ['avatar', 'thumbnail', 'url'].includes(key)) {
+          if (val.startsWith('/') && !val.startsWith('http')) {
+            val = `${baseUrl}${val.slice(1)}`;
+          }
+        } else if (typeof val === 'object') {
+          val = fixUrls(val);
+        }
+        newObj[key] = val;
+      }
+      return newObj;
+    };
+
+    fetch(`${baseUrl}data.json`)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      })
+      .then(data => setData(fixUrls(data)))
       .catch(err => console.error("Portfolio Engine Error", err))
   }, [setData])
 
