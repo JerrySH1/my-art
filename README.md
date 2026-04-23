@@ -1,10 +1,10 @@
 # 3D Digital Media Art Portfolio
 
-> ✨ 这是一个极具视觉冲击力的 3D 交互式个人作品集展示网站。本项目由 **Google Gemini AI** 协助架构与开发，专为数字媒体艺术、交互设计及创意开发者量身定制。
+> ✨ 具有视觉冲击力的 3D 交互式个人作品集展示网站。本项目由 **Google Gemini AI** 协助架构与开发，专为数字媒体艺术、交互设计及创意开发者量身定制。
 
 ## 🛠 技术栈与底层架构
 
-本项目采用前沿的现代 Web 3D 技术与高度解耦的“数据驱动”架构构建：
+本项目采用 Web 3D 技术与高度解耦的“数据驱动”架构构建：
 
 - **核心框架**：[React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
 - **3D 渲染引擎**：[Three.js](https://threejs.org/) + [React Three Fiber (R3F)](https://docs.pmnd.rs/react-three-fiber) + [Drei](https://github.com/pmndrs/drei)
