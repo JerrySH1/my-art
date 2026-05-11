@@ -3,6 +3,7 @@ import { Canvas, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { OrbitControls } from '@react-three/drei'
+import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import SurrealHorizon from './components/SurrealHorizon'
 import ArtGrid from './components/ArtGrid'
 import UI from './components/UI'
@@ -23,6 +24,7 @@ function CameraController() {
   const { view } = useStore()
   const { camera } = useThree()
   const controlsRef = useRef()
+  const isDetail = view === 'DETAIL'
 
   useEffect(() => {
     if (view === 'DETAIL') {
@@ -49,14 +51,14 @@ function CameraController() {
       enablePan={view === 'DETAIL'}
       // 动态配置鼠标按键映射：详情态下左键为平移(PAN)，默认态左键为旋转(ROTATE)
       mouseButtons={
-        view === 'DETAIL' 
+        isDetail 
           ? { LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.NONE }
           : { LEFT: THREE.MOUSE.ROTATE, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN }
       }
       maxDistance={40}
       minDistance={5}
       // 在详情态禁用3D旋转以便保持卡片正对
-      enableRotate={view !== 'DETAIL'}
+      enableRotate={!isDetail}
     />
   )
 }
@@ -102,19 +104,33 @@ function App() {
         camera={{ position: [0, 0, 18], fov: 40 }}
         gl={{ antialias: true, alpha: false }}
       >
+        <color attach="background" args={['#030304']} />
+        <fog attach="fog" args={['#050507', 18, 42]} />
+
         <Suspense fallback={null}>
           <SurrealHorizon />
         </Suspense>
 
         <ViewportSync />
 
-        <ambientLight intensity={1.0} />
-        <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffff" />
-        <pointLight position={[-10, -10, -10]} intensity={1.5} color="#ff00ff" />
+        <ambientLight intensity={0.8} />
+        <hemisphereLight intensity={0.55} color="#d9ecff" groundColor="#050507" />
+        <pointLight position={[10, 8, 10]} intensity={1.35} color="#9bd2ff" />
+        <pointLight position={[-10, -8, 2]} intensity={1.1} color="#ff96d7" />
 
         <Suspense fallback={null}>
           <ArtGrid />
         </Suspense>
+
+        <EffectComposer>
+          <Bloom
+            mipmapBlur
+            intensity={0.9}
+            luminanceThreshold={0.1}
+            luminanceSmoothing={0.35}
+            radius={0.82}
+          />
+        </EffectComposer>
 
         <CameraController />
       </Canvas>
